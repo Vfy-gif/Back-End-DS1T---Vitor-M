@@ -93,7 +93,7 @@ entradaDeDados.question("Digite o nome do aluno: ", function(nome){
                         }
 
                         console.log(`O aluno ${nomeAluno} teve a média: ${media.toFixed(1)} e está ${statusAluno}`)
-                    }
+                    } 
 
                 })//Fecha a entrada da nota4
             })//Fecha a entrada da nota3
