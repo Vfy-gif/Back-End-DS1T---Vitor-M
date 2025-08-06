@@ -55,7 +55,7 @@ function validador_capital(capital) {
 
 function validador_taxa(taxa) {
 
-    let taxa_de_juros = taxa
+    let taxa_de_juros = Number(taxa)
 
     if (isNaN(taxa_de_juros) || taxa_de_juros < 0 || taxa_de_juros > 100 || taxa_de_juros == "") {
 
@@ -70,7 +70,7 @@ function validador_taxa(taxa) {
 
 function validador_juros_compostos(juros_compostos) {
 
-    let juros_compostos_no_ano = juros_compostos
+    let juros_compostos_no_ano = Number(juros_compostos)
 
     if (isNaN(juros_compostos_no_ano) || juros_compostos_no_ano <= 0 || juros_compostos == "") {
 
@@ -85,7 +85,7 @@ function validador_juros_compostos(juros_compostos) {
 
 function validador_tempo(tempo) {
 
-    let tempo_ano = tempo
+    let tempo_ano = Number(tempo)
 
     if (isNaN(tempo_ano) || tempo_ano <= 0 || tempo_ano == "") {
 
