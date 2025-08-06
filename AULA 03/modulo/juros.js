@@ -5,15 +5,14 @@
  * Versão: 1.0
  ***********************************************************************************************************************/
 
-function calcularJuros (capital_inicial, taxa_de_juros, juros_compostos_no_ano, tempo_ano) {
-    let capital         = Number(capital_inicial)
-    let taxa            = Number(taxa_de_juros)
-    let juros_compostos = Number(juros_compostos_no_ano)
-    let tempo           = Number(tempo_ano)
+function calcularJuros (capital, taxa, juros_compostos, tempo) {
+    let capital_inicial         = Number(capital)
+    let taxa_de_juros           = Number(taxa/100)
+    let juros_compostos_no_ano  = Number(juros_compostos)
+    let tempo_ano               = Number(tempo)
 
-    let montanteFinal = capital*(1 + taxa/juros_compostos)**(juros_compostos/100*tempo)
+    let montanteFinal = capital_inicial*(1 + taxa_de_juros/juros_compostos_no_ano)**(juros_compostos_no_ano*tempo_ano)
 
     return Number(montanteFinal).toFixed(1)
 }
 
-console.log(calcularJuros(10000, 8, 12, 5))
