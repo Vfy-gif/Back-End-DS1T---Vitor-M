@@ -16,3 +16,7 @@ function calcularJuros (capital, taxa, juros_compostos, tempo) {
     return Number(montanteFinal).toFixed(1)
 }
 
+module.exports = {
+    calcularJuros
+}
+
