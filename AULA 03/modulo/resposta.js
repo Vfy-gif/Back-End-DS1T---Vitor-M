@@ -5,13 +5,13 @@
  * Versão: 1.0
  ***********************************************************************************************************************/
 
-function resposta (clienteNome, produtoNome, capital, juros_compostos_no_ano, montanteFinal){
+function resposta(clienteNome, produtoNome, capital, juros_compostos_no_ano, montanteFinal) {
 
-    let clienteNome_    = clienteNome
-    let produtoNome_    = produtoNome
+    let clienteNome_ = clienteNome
+    let produtoNome_ = produtoNome
     let capital_inicial = capital
     let juros_compostos = juros_compostos_no_ano
-    let montante        = montanteFinal
+    let montante = montanteFinal
 
     console.log("*************************** MicroDownf ******************************")
     console.log(`Muito obrigado por realizar a sua compra conosco Sr(a) ${clienteNome_}`)
@@ -22,7 +22,7 @@ function resposta (clienteNome, produtoNome, capital, juros_compostos_no_ano, mo
 
     process.exit()
 
-    return 
+    return
 }
 
 module.exports = {
