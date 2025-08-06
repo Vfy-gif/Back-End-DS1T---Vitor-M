@@ -6,15 +6,15 @@
  ***********************************************************************************************************************/
 
 const MESSAGE_ERROR_EMPTY_NUMBER = "ERRO: Não é possível utilizar número e nem deixar o campo vazio"
-const MESSAGE_ERROR_NAN          = "ERRO: Não é possível utilizar caracteres diferentes dos números, nem numeros menores que 0 e maiores que 100 e nem vazio"
-const MESSAGE_ERROR_EMPTY_NNAN   = "ERRO: Não é possível utilizar caracteres diferentes dos números, nem vazio e nem números menores ou iguais a 0"
+const MESSAGE_ERROR_NAN = "ERRO: Não é possível utilizar caracteres diferentes dos números, nem numeros menores que 0 e maiores que 100 e nem vazio"
+const MESSAGE_ERROR_EMPTY_NNAN = "ERRO: Não é possível utilizar caracteres diferentes dos números, nem vazio e nem números menores ou iguais a 0"
 
 function validar_cliente(clienteNome) {
 
     let clienteNome_ = clienteNome
 
-    if (!isNaN(clienteNome_) || clienteNome_ == "" || clienteNome_ == null){
-        
+    if (!isNaN(clienteNome_) || clienteNome_ == "" || clienteNome_ == null) {
+
         console.log(MESSAGE_ERROR_EMPTY_NUMBER)
 
         process.exit()
@@ -24,12 +24,12 @@ function validar_cliente(clienteNome) {
 }
 
 
-function validar_produto (produtoNome) {
+function validar_produto(produtoNome) {
 
     let produtoNome_ = String(produtoNome)
 
-    if (!isNaN(produtoNome_) || produtoNome_ == "" || produtoNome_ == null){
-        
+    if (!isNaN(produtoNome_) || produtoNome_ == "" || produtoNome_ == null) {
+
         console.log(MESSAGE_ERROR_EMPTY_NUMBER)
 
         process.exit()
@@ -39,7 +39,7 @@ function validar_produto (produtoNome) {
 
 }
 
-function validador_capital (capital) {
+function validador_capital(capital) {
 
     let capital_inicial = Number(capital)
 
@@ -53,7 +53,7 @@ function validador_capital (capital) {
     return false
 }
 
-function validador_taxa (taxa) {
+function validador_taxa(taxa) {
 
     let taxa_de_juros = taxa
 
@@ -68,7 +68,7 @@ function validador_taxa (taxa) {
 
 }
 
-function validador_juros_compostos (juros_compostos) {
+function validador_juros_compostos(juros_compostos) {
 
     let juros_compostos_no_ano = juros_compostos
 
@@ -83,11 +83,11 @@ function validador_juros_compostos (juros_compostos) {
 
 }
 
-function validador_tempo (tempo) {
+function validador_tempo(tempo) {
 
     let tempo_ano = tempo
 
-    if(isNaN(tempo_ano) || tempo_ano <= 0 || tempo_ano == "") {
+    if (isNaN(tempo_ano) || tempo_ano <= 0 || tempo_ano == "") {
 
         console.log(MESSAGE_ERROR_EMPTY_NNAN)
 
