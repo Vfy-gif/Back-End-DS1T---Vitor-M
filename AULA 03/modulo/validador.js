@@ -50,7 +50,7 @@ function validador_capital(capital) {
         process.exit()
     }
 
-    return false
+    return true
 }
 
 function validador_taxa(taxa) {
@@ -64,7 +64,7 @@ function validador_taxa(taxa) {
         process.exit()
     }
 
-    return false
+    return true
 
 }
 
@@ -79,7 +79,7 @@ function validador_juros_compostos(juros_compostos) {
         process.exit()
     }
 
-    return false
+    return true
 
 }
 
@@ -94,7 +94,7 @@ function validador_tempo(tempo) {
         process.exit()
     }
 
-    return false
+    return true
 
 }
 
