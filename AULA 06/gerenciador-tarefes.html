@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Tarefas</title>
+</head>
+
+<body>
+    <h2>Minhas tarefas</h2>
+
+    <form action="" id="form-tarefa">
+        <label for="">Tarefa: </label>
+        <input id="input-tarefa" type="text" placeholder="Digite na tarefa...">
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <h3>Lista de tarefas</h3>
+    <ul id="lista-tarefas"></ul>
+
+    <script>
+        //Criando o array de tarefas
+        let lista = ["Estudar JS", "Estudar SQL", "Estudar Front-end"];
+
+        const form = document.getElementById("form-tarefa");
+        const input = document.getElementById("input-tarefa");
+        const ul = document.getElementById("lista-tarefas");
+
+        //Função para renderizar a lista na tela
+        function atualizarLista() {
+
+            ul.innerHTML = "";
+
+            lista.forEach((tarefa, index) => {
+
+                let li = document.createElement("li");
+                li.textContent = tarefa;
+
+                //Botão Editar
+                let btnEditar = document.createElement("button");
+                btnEditar.textContent = "Editar";
+
+                btnEditar.onclick = () => {
+                    let nomeTarefa = prompt("Digite o novo nome da tarefa");
+                    if (nomeTarefa) {
+                        lista[index] = nomeTarefa;
+                        atualizarLista();
+                    }
+                }
+
+                //Botão Excluir
+                let btnExcluir = document.createElement("button");
+                btnExcluir.textContent = "Excluir";
+
+                btnExcluir.onclick = () => {
+                    if (confirm("Deseja realmente excluir?")) {
+                        lista.splice(index, 1);
+                        atualizarLista();
+                    }
+                }
+
+
+                //Adicionar o botao editar e botao excluir no li
+                li.appendChild(btnEditar)
+                li.appendChild(btnExcluir);
+                //Adicionar o li no, ul (lista-tarefas)
+                ul.appendChild(li);
+
+            }); //O forEach acaba aqui
+        }
+
+        //Ação de adicionar uma tarefa
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            lista.push(input.value);
+            input.value = "";
+            atualizarLista();
+        })
+        atualizarLista()
+
+    </script>
+</body>
+
+</html>
