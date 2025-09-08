@@ -8,6 +8,17 @@ const userController = require('../controller/userController');
 
 
 // 3º Passo - Criar as Rotas  dos Usuários
-router.get('/list',  userController.getAllUsers);
+router.get('/list', userController.getAllUsers);
+
+//Criando a rota que ira Obter os dados do usuário por id
+//localhost:8000/api/user/
+router.get('/:id', userController.getUserById);
+
+//Criando uma rota que ira Criar um novo usuario
+//localhost:8000/api/user/
+router.post('/', userController.createUser);
+
+//Criando uma rota que ira Deletar um usuário
+router.delete('/:id', userController.deleteUser)
 
 module.exports = router;
