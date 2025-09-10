@@ -2,9 +2,9 @@
 
 // Simulação de um banco de dados em memória
 let users = [
-    {id: 1, name: 'Alice', email: 'alice@gmail.com'},
-    {id: 2, name: 'Roberto', email: 'roberto@gmail.com'},
-    {id: 3, name: 'Josué', email: 'josue@gmail.com'}
+    { id: 1, name: 'Alice', email: 'alice@gmail.com' },
+    { id: 2, name: 'Roberto', email: 'roberto@gmail.com' },
+    { id: 3, name: 'Josué', email: 'josue@gmail.com' }
 ];
 
 //Funções que irão simular integração com o banco de dados
@@ -25,7 +25,7 @@ const create = (newUser) => {
     const newId = users.length > 0 ? users[users.length - 1].id + 1 : 1;
 
     //Criando um novo usuário com o id novo
-    const userWithId = {id: newId, ...newUser};
+    const userWithId = { id: newId, ...newUser };
 
     //Adicionar o userWithId no array users
     users.push(userWithId);
@@ -40,17 +40,30 @@ const deleteUser = (id) => {
     //Descobrir o index do elemento para excluir
     const index = users.findIndex(user => user.id === id);
 
-    if(index !== -1){
-        const [deleteUser] = users.splice(index,1);
+    if (index !== -1) {
+        const [deleteUser] = users.splice(index, 1);
         return deleteUser
     }
 
     return null;
 }
 
+//Função para atualizar dados de um usuário
+const updateUser = (dataUser) => {
+
+    //Descobrir o index do elemento
+    const index = users.findIndex(user => user.id === dataUser.id);
+
+    //Alterando os dados
+    users[index] = dataUser;
+
+    return users[index];
+}
+
 module.exports = {
     findAll,
     findById,
     create,
-    deleteUser
+    deleteUser,
+    updateUser
 }

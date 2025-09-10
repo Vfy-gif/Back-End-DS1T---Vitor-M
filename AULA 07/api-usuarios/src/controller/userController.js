@@ -1,7 +1,6 @@
 
 //1º Passo - importar o userModel
 const userModel = require('../model/userModel');
-const { use } = require('../routes/userRoutes');
 
 //Função do controller que lista os usuários
 const getAllUsers = (req, res) => {
@@ -21,13 +20,13 @@ const getUserById = (req, res) => {
     //Chamar o metodo findById do userModel
     const user = userModel.findById(id);
 
-    if(user){
+    if (user) {
         //Responder com status code 200 (sucesso)
         //e devolver os dados do usuario em formato json
         res.status(200).json(user);
     }
-    else{
-        res.status(404).json({mensagem: 'Usuário não encontrado!'})
+    else {
+        res.status(404).json({ mensagem: 'Usuário não encontrado!' })
     }
 }
 
@@ -35,36 +34,53 @@ const getUserById = (req, res) => {
 const createUser = (req, res) => {
 
     //Pegando os dados que foram enviados pelo Body da requisição
-    const {name, email} = req.body;
+    const { name, email } = req.body;
 
     //Validar se os valores foram enviados
-    if(!name || !email){
-        return res.status(400).json({mensagem: 'Nome e email são Obrigatórios'})
+    if (!name || !email) {
+        return res.status(400).json({ mensagem: 'Nome e email são Obrigatórios' })
     }
-    else{
-        const newUser = userModel.create({name,email})
+    else {
+        const newUser = userModel.create({ name, email })
         res.status(201).json(newUser);
     }
 }
 
 //Função do controlador que deleta um usuário
 const deleteUser = (req, res) => {
-     
+
     const id = parseInt(req.params.id);
 
     //Excluir o usuário e retornar
     const deleteUser = userModel.deleteUser(id);
 
-    if(deleteUser){
+    if (deleteUser) {
         res.status(200).json(deleteUser);
-    }else{
-        res.status(400).json({mensagem: 'Informe o id do usuário corretamente'})
+    } else {
+        res.status(400).json({ mensagem: 'Informe o id do usuário corretamente' })
     }
+}
+
+//Método do controlador para editar um usuário
+const updateUser = (req, res) => {
+
+    //1 Passo - pegar os dados que foram enviados pelo Body (corpo) da requisição
+    const { id, name, email } = req.body;
+
+    //Validar se foi enviado o id
+    if (!id) {
+        return req.status(400).json({ mensagem: 'O id do usuário é obrigatório' });
+    } else {
+        const dataUser = userModel.updateUser({ id, name, email });
+        res.status(200).json(dataUser);
+    }
+
 }
 
 module.exports = {
     getAllUsers,
     getUserById,
     createUser,
-    deleteUser
+    deleteUser,
+    updateUser
 }
